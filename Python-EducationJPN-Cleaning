@@ -1,0 +1,44 @@
+import numpy as np
+import pandas as pd
+from pandas import Series,DataFrame
+
+################################ Before Cleaning ############################################
+df = pd.read_csv('https://query.data.world/s/26l2e3m4jekud3zspqve5otwb2p5vn')
+num_rows_before = df.shape[0] ##number of Rows BEFORE cleaning
+num_cols_before = len(df.columns)##number of Columns BEFORE cleaning
+print('Number of Rows in DataFrame BEFORE cleaning :',num_rows_before)
+print('Number of Columns in DataFrame BEFORE cleaning :', num_cols_before)
+
+##get a small portion of the dataset BEFORE cleaning
+df_sub=df.iloc[:101]
+##plot BEFORE cleaning
+df_sub.plot(x ='Year', y='Value', kind = 'scatter')
+
+
+############################### After Cleaning ###############################################
+
+##remove the column "Country Code"
+df=df.drop('Country ISO3',axis=1) 
+
+
+##remove the column "Indicator Code"
+df=df.drop('Indicator Code',axis=1) 
+
+
+##remove the first row which is repeated with labels
+df=df.drop(df.index[0])
+
+
+##Check out if there are missing values or not
+df.isnull().sum()
+
+num_rows_after=df.shape[0]##number of Rows AFTER cleaning
+num_cols_after=len(df.columns)##number of Columns AFTER cleaning
+print('Number of Rows in DataFrame AFTER cleaning :',num_rows_after)
+print('Number of Columns in DataFrame AFTER cleaning :', num_cols_after)
+
+##get a small portion of the dataset AFTER cleaning
+df_sub2=df.iloc[:100]
+##plot AFTER cleaning
+df_sub2.plot(x ='Year', y='Value', kind = 'scatter')
+
