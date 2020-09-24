@@ -1,0 +1,13 @@
+install.packages('twitteR')
+library(twitteR)
+
+
+consumer_key <- "nwSi4HuhlbpSzCqSx27GKOP6a"
+consumer_secret <- "4YvzExkuHoliRqQkuxpDYG9F41wfOHrbYZXjvVMdeJ2XEeQRJY"
+access_token <- "1243701223712227328-IibRtICnmvcJmFpxqeBgCrGFOqX7Vv"
+access_secret <- "GXwEuhk4KDzciHyNKw3mRjCS4TsOsNMZ96pNTCtipdL1W"
+
+setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
+Sys.sleep(23)
+tw = twitteR::searchTwitter('#一人暮らし', n = 10000,since = '2014-1-1')
+d = twitteR::twListToDF(tw)
