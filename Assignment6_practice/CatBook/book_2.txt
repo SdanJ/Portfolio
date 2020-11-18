@@ -1,0 +1,1 @@
+Every book title has an International Standard Book Number (ISBN) that is unique to it, and helps in identifying it. Today books are available as web versions too so that they can be read on the internet.
