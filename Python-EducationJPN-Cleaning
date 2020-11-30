@@ -1,3 +1,4 @@
+
 import numpy as np
 import pandas as pd
 from pandas import Series,DataFrame
@@ -9,10 +10,15 @@ num_cols_before = len(df.columns)##number of Columns BEFORE cleaning
 print('Number of Rows in DataFrame BEFORE cleaning :',num_rows_before)
 print('Number of Columns in DataFrame BEFORE cleaning :', num_cols_before)
 
+
+##Check out if there are missing values or not
+df.isnull().sum()
+
 ##get a small portion of the dataset BEFORE cleaning
 df_sub=df.iloc[:101]
 ##plot BEFORE cleaning
 df_sub.plot(x ='Year', y='Value', kind = 'scatter')
+
 
 
 ############################### After Cleaning ###############################################
