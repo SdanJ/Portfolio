@@ -23,7 +23,7 @@ df %>%leaflet() %>% addTiles() %>%addProviderTiles(providers$CartoDB.DarkMatter)
                           "<br><strong>Time: </strong>", df$Time,
                           "<br><strong>Latitude: </strong>", df$Latitude,
                           "<br><strong>Longitude: </strong>", df$Longitude
-                                             ))
+                                             ))%>% addGraticule(interval = 30, style = list(color = "grey", weight = 1))
 
 ### Map 2
 
@@ -88,4 +88,4 @@ l %>%
     baseGroups = c("OSM (default)", "Toner", "Esri"),
     overlayGroups = names(quakes.df),
     options = layersControlOptions(collapsed = FALSE)
-  )%>% addGraticule(interval = 30, style = list(color = "lightblue", weight = 1))
+  )
